@@ -14,7 +14,7 @@ namespace Snake
             Console.WriteLine("\t \t \t \t PRESS ENTER");
             Console.Read();
 
-            while (!finished)
+            while (finished == false)
             {
                 try
                 {
@@ -40,26 +40,33 @@ namespace Snake
                     Console.WriteLine("Restart (y/n)");
                     ConsoleKeyInfo key = Console.ReadKey();
 
-                    switch (key.Key)
-                    {
-                        case ConsoleKey.Y:
-
-                            snake.X = 20;
-                            snake.Y = 20;
-                            snake.Score = 0;
-                            snake.SnakeBody.RemoveRange(0, snake.SnakeBody.Count - 1);
-
-                            break;
-
-                        case ConsoleKey.N:
-
-                            finished = true;
-
-                            break;
-                    }
+                    finished = IsGameFinished(finished, snake, key);
                     //Console.Read();
                 }
             }
+        }
+
+        private static bool IsGameFinished(bool finished, Snake snake, ConsoleKeyInfo key)
+        {
+            switch (key.Key)
+            {
+                case ConsoleKey.Y:
+
+                    snake.X = 20;
+                    snake.Y = 20;
+                    snake.Score = 0;
+                    snake.SnakeBody.RemoveRange(0, snake.SnakeBody.Count - 1);
+
+                    break;
+
+                case ConsoleKey.N:
+
+                    finished = true;
+
+                    break;
+            }
+
+            return finished;
         }
     }
 }
