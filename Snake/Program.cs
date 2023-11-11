@@ -18,11 +18,12 @@ namespace Snake
             {
                 try
                 {
-
                     canvas.DrawCanvas();
 
                     Console.SetCursorPosition(90, 5);
+
                     Console.WriteLine("Score: {0}", snake.Score);
+
                     snake.Input();
                     food.DrawFood();
                     snake.DrawSnake();
