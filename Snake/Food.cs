@@ -14,27 +14,26 @@ namespace Snake
 
         public Food()
         {
-            foodPos.x = rnd.Next(5, canvas.Width);
-            foodPos.y = rnd.Next(5, canvas.Height);
+            foodPos.X = rnd.Next(5, canvas.Width);
+            foodPos.Y = rnd.Next(5, canvas.Height);
         }
 
-        public void drawFood()
+        public void DrawFood()
         {
-            Console.SetCursorPosition(foodPos.x, foodPos.y);
+            Console.SetCursorPosition(foodPos.X, foodPos.Y);
             Console.Write("F");
         }
 
-        public Position foodLocation()
+        public Position FoodLocation()
         {
             return foodPos;
         }
 
 
-        public void foodNewLocation()
+        public void FoodNewLocation()
         {
-            foodPos.x = rnd.Next(5, canvas.Width);
-            foodPos.y = rnd.Next(5, canvas.Height);
-
+            foodPos.X = rnd.Next(5, canvas.Width);
+            foodPos.Y = rnd.Next(5, canvas.Height);
         }
 
     }

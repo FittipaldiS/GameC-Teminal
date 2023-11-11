@@ -20,7 +20,7 @@ namespace Snake
             Console.CursorVisible = false;
         }
 
-        public void drawCanvas()
+        public void DrawCanvas()
         {
             Console.Clear();
 

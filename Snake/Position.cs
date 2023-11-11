@@ -8,16 +8,13 @@ namespace Snake
 {
     public class Position
     {
-       
-
-        public int x { get; set; }
-        public int y { get; set; }
-
+        public int X { get; set; }
+        public int Y { get; set; }
 
         public Position(int x, int y)
         {
-            this.x = x;
-            this.y = y;
+            this.X = x;
+            this.Y = y;
         }
 
         public Position()

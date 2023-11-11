@@ -18,18 +18,18 @@ namespace Snake
             {
                 try
                 {
-                   
-                    canvas.drawCanvas();
+
+                    canvas.DrawCanvas();
 
                     Console.SetCursorPosition(90, 5);
                     Console.WriteLine("Score: {0}", snake.score);
                     snake.Input();
-                    food.drawFood();
-                    snake.drawSnake();
-                    snake.moveSnake();
-                    snake.eat(food.foodLocation(), food);
-                    snake.isDead();
-                    snake.hitWall(canvas);
+                    food.DrawFood();
+                    snake.DrawSnake();
+                    snake.MoveSnake();
+                    snake.Eat(food.FoodLocation(), food);
+                    snake.IsDead();
+                    snake.HitWall(canvas);
                 }
                 catch (SnakeException e)
                 {
@@ -37,31 +37,29 @@ namespace Snake
                     Console.WriteLine(e.Message);
 
                     Console.WriteLine("Restart (y/n)");
-                    char c = char.Parse(Console.ReadLine());
+                    ConsoleKeyInfo key = Console.ReadKey();
 
-
-                    switch (c)
+                    switch (key.Key)
                     {
-                        case 'y':
-                           
-                            snake.x=20;
+                        case ConsoleKey.Y:
+
+                            snake.x = 20;
                             snake.y = 20;
                             snake.score = 0;
-                            snake.snakeBody.RemoveRange(0, snake.snakeBody.Count - 1);
-                        
+                            snake.SnakeBody.RemoveRange(0, snake.SnakeBody.Count - 1);
+
                             break;
 
-                        case 'n':
+                        case ConsoleKey.N:
                             finished = true;
 
                             break;
                     }
 
+                    Console.Read();
                 }
-            
-                //Console.Read();
             }
-           
+
         }
     }
 }

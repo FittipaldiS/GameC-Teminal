@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 
 namespace Snake
 {
-    public class Snake 
+    public class Snake
     {
         ConsoleKeyInfo keyInfo = new ConsoleKeyInfo();
         char key = 'w';
         char dir = 'u';
 
         //Fare la lista delle posizioni
-        public List<Position> snakeBody { get; set; }
+        public List<Position> SnakeBody { get; set; }
 
         public int x { get; set; }
         public int y { get; set; }
@@ -30,21 +30,19 @@ namespace Snake
             y = 20;
             score = 0;
 
-            snakeBody = new List<Position>();
-            snakeBody.Add(new Position(x, y));
+            SnakeBody = new List<Position>();
+            SnakeBody.Add(new Position(x, y));
 
 
         }
 
-        public void drawSnake()
+        public void DrawSnake()
         {
-            foreach (Position pos in snakeBody)
+            foreach (Position pos in SnakeBody)
             {
-                Console.SetCursorPosition(pos.x, pos.y);
+                Console.SetCursorPosition(pos.X, pos.Y);
                 Console.Write("▐");
             }
-          
-
         }
 
         public void Input()
@@ -58,15 +56,15 @@ namespace Snake
 
         private void direction()
         {
-            if (key == 'w' && dir !='d')
+            if (key == 'w' && dir != 'd')
             {
                 dir = 'u';
             }
-            else if (key =='s' && dir !='u')
+            else if (key == 's' && dir != 'u')
             {
                 dir = 'd';
             }
-            else if (key == 'd' && dir !='l')
+            else if (key == 'd' && dir != 'l')
             {
                 dir = 'r';
             }
@@ -76,11 +74,11 @@ namespace Snake
             }
         }
 
-        public void moveSnake()
+        public void MoveSnake()
         {
             direction();
 
-            if(dir == 'u')
+            if (dir == 'u')
             {
                 y--;
             }
@@ -90,53 +88,51 @@ namespace Snake
             }
             else if (dir == 'r')
             {
-                x++; 
+                x++;
             }
             else if (dir == 'l')
             {
                 x--;
             }
 
-            snakeBody.Add(new Position(x, y));
-            snakeBody.RemoveAt(0);
+            SnakeBody.Add(new Position(x, y));
+            SnakeBody.RemoveAt(0);
             Thread.Sleep(100);
         }
 
-        public void eat(Position food, Food f)
+        public void Eat(Position food, Food f)
         {
             //Abbiamo bisogno dell ultima posizione del corpo del serpente
-            Position head = snakeBody[snakeBody.Count - 1];//head
+            Position head = SnakeBody[SnakeBody.Count - 1];//head
 
-            if (head.x == food.x && head.y == food.y)
+            if (head.X == food.X && head.Y == food.Y)
             {
-                snakeBody.Add(new Position(x, y));
-                f.foodNewLocation();
+                SnakeBody.Add(new Position(x, y));
+                f.FoodNewLocation();
                 score++;
             }
         }
 
-        public void isDead()
+        public void IsDead()
         {
+            Position head = SnakeBody[SnakeBody.Count - 1];//head
 
-            Position head = snakeBody[snakeBody.Count - 1];//head
-
-            for (int i = 0; i < snakeBody.Count -2; i++)
+            for (int i = 0; i < SnakeBody.Count - 2; i++)
             {
-                Position sb = snakeBody[i]; //stocca tutte le posizioni in lista
+                Position sb = SnakeBody[i]; //stocca tutte le posizioni in lista
 
-                if (head.x == sb.x && head.y == sb.y) // se lo snake è se stessa
+                if (head.X == sb.X && head.Y == sb.Y) // se lo snake è se stessa
                 {
-                    throw new SnakeException("LOSER!!!!");
+                    throw new SnakeException("You ate yourself, you losers!");
                 }
-
             }
 
         }
 
-        public void hitWall(Canvas canvas)
+        public void HitWall(Canvas canvas)
         {
-            Position head = snakeBody[snakeBody.Count - 1];
-            if (head.x >= canvas.Width || head.x <= 0 || head.y >= canvas.Height || head.y <= 0)
+            Position head = SnakeBody[SnakeBody.Count - 1];
+            if (head.X >= canvas.Width || head.X <= 0 || head.Y >= canvas.Height || head.Y <= 0)
             {
                 throw new SnakeException("You DEAD!!!!");
             }
