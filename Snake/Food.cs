@@ -9,8 +9,8 @@ namespace Snake
     public class Food
     {
         public Position foodPos = new Position();
-        Random rnd = new Random();
-        Canvas canvas = new Canvas();
+        readonly Random rnd = new Random();
+        readonly Canvas canvas = new Canvas();
 
         public Food()
         {
