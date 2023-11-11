@@ -54,7 +54,7 @@ namespace Snake
             }
         }
 
-        private void direction()
+        private void Direction()
         {
             if (key == 'w' && dir != 'd')
             {
@@ -76,7 +76,7 @@ namespace Snake
 
         public void MoveSnake()
         {
-            direction();
+            Direction();
 
             if (dir == 'u')
             {
