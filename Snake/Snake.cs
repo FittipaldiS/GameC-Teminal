@@ -114,7 +114,7 @@ namespace Snake
 
             for (int i = 0; i < SnakeBody.Count - 2; i++)
             {
-                Position sb = SnakeBody[i]; //stocca tutte le posizioni in lista
+                Position sb = SnakeBody[i]; //tocca tutte le posizioni in lista
 
                 if (head.X == sb.X && head.Y == sb.Y) // se lo snake è se stessa
                 {

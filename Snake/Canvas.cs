@@ -26,7 +26,7 @@ namespace Snake
 
             for (int i = 0; i < Width; i++)
             {
-                Console.SetCursorPosition(i, 0) ;
+                Console.SetCursorPosition(i, 0);
                 Console.Write("_");
             }
 
@@ -47,15 +47,6 @@ namespace Snake
                 Console.SetCursorPosition(Width, i);
                 Console.WriteLine("|");
             }
-
-
         }
-
-
-
-
-
-
-
     }
 }

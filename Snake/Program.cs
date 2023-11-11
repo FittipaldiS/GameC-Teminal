@@ -7,9 +7,9 @@ namespace Snake
         static void Main(string[] args)
         {
             bool finished = false;
-            Canvas canvas = new Canvas();
-            Snake snake = new Snake();
-            Food food = new Food();
+            Canvas canvas = new();
+            Snake snake = new();
+            Food food = new();
 
             Console.WriteLine("\t \t \t \t PRESS ENTER");
             Console.Read();
@@ -52,15 +52,14 @@ namespace Snake
                             break;
 
                         case ConsoleKey.N:
+
                             finished = true;
 
                             break;
                     }
-
-                    Console.Read();
+                    //Console.Read();
                 }
             }
-
         }
     }
 }
