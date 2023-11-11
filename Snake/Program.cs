@@ -41,7 +41,6 @@ namespace Snake
                     ConsoleKeyInfo key = Console.ReadKey();
 
                     finished = IsGameFinished(finished, snake, key);
-                    //Console.Read();
                 }
             }
         }
@@ -52,10 +51,12 @@ namespace Snake
             {
                 case ConsoleKey.Y:
 
-                    snake.X = 20;
-                    snake.Y = 20;
+               
                     snake.Score = 0;
                     snake.SnakeBody.RemoveRange(0, snake.SnakeBody.Count - 1);
+
+                    snake.X = 20;
+                    snake.Y = 20;
 
                     break;
 

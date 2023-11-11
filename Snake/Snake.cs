@@ -28,6 +28,7 @@ namespace Snake
             Score = 0;
 
             SnakeBody = new List<Position>();
+
             SnakeBody.Add(new Position(X, Y));
         }
 
@@ -118,7 +119,7 @@ namespace Snake
 
                 if (head.X == sb.X && head.Y == sb.Y) // se lo snake è se stessa
                 {
-                    throw new SnakeException("You ate yourself, you losers!");
+                    throw new SnakeException("You ate yourself, ayou losers!");
                 }
             }
 

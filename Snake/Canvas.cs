@@ -15,7 +15,7 @@ namespace Snake
         public Canvas()
         {
             Width = 50;
-            Height = 20;
+            Height = 24;
 
             Console.CursorVisible = false;
         }
@@ -26,26 +26,26 @@ namespace Snake
 
             for (int i = 0; i < Width; i++)
             {
-                Console.SetCursorPosition(i, 0);
-                Console.Write("_");
+                Console.SetCursorPosition(i, 0) ;
+                Console.Write("-");
             }
 
             for (int i = 0; i < Width; i++)
             {
                 Console.SetCursorPosition(i, Height);
-                Console.Write("_");
+                Console.Write("-");
             }
 
             for (int i = 0; i < Height; i++)
             {
                 Console.SetCursorPosition(0, i);
-                Console.Write("|");
+                Console.Write("-");
             }
 
             for (int i = 0; i < Height; i++)
             {
                 Console.SetCursorPosition(Width, i);
-                Console.WriteLine("|");
+                Console.WriteLine("-");
             }
         }
     }
