@@ -22,7 +22,7 @@ namespace Snake
                     canvas.DrawCanvas();
 
                     Console.SetCursorPosition(90, 5);
-                    Console.WriteLine("Score: {0}", snake.score);
+                    Console.WriteLine("Score: {0}", snake.Score);
                     snake.Input();
                     food.DrawFood();
                     snake.DrawSnake();
@@ -43,9 +43,9 @@ namespace Snake
                     {
                         case ConsoleKey.Y:
 
-                            snake.x = 20;
-                            snake.y = 20;
-                            snake.score = 0;
+                            snake.X = 20;
+                            snake.Y = 20;
+                            snake.Score = 0;
                             snake.SnakeBody.RemoveRange(0, snake.SnakeBody.Count - 1);
 
                             break;

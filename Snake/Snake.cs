@@ -10,30 +10,28 @@ namespace Snake
 {
     public class Snake
     {
-        ConsoleKeyInfo keyInfo = new ConsoleKeyInfo();
-        char key = 'w';
-        char dir = 'u';
+        ConsoleKeyInfo KeyInfo = new ConsoleKeyInfo();
+        char Key = 'w';
+        char Dir = 'u';
 
         //Fare la lista delle posizioni
         public List<Position> SnakeBody { get; set; }
 
-        public int x { get; set; }
-        public int y { get; set; }
+        public int X { get; set; }
+        public int Y { get; set; }
 
-        public int score { get; set; }
+        public int Score { get; set; }
 
 
         //Construtto con la posizione del Serpente piu la lista posizione
         public Snake()
         {
-            x = 20;
-            y = 20;
-            score = 0;
+            X = 20;
+            Y = 20;
+            Score = 0;
 
             SnakeBody = new List<Position>();
-            SnakeBody.Add(new Position(x, y));
-
-
+            SnakeBody.Add(new Position(X, Y));
         }
 
         public void DrawSnake()
@@ -49,28 +47,28 @@ namespace Snake
         {
             if (Console.KeyAvailable)
             {
-                keyInfo = Console.ReadKey(true);
-                key = keyInfo.KeyChar;
+                KeyInfo = Console.ReadKey(true);
+                Key = KeyInfo.KeyChar;
             }
         }
 
         private void Direction()
         {
-            if (key == 'w' && dir != 'd')
+            if (Key == 'w' && Dir != 'd')
             {
-                dir = 'u';
+                Dir = 'u';
             }
-            else if (key == 's' && dir != 'u')
+            else if (Key == 's' && Dir != 'u')
             {
-                dir = 'd';
+                Dir = 'd';
             }
-            else if (key == 'd' && dir != 'l')
+            else if (Key == 'd' && Dir != 'l')
             {
-                dir = 'r';
+                Dir = 'r';
             }
-            else if (key == 'a' && dir != 'r')
+            else if (Key == 'a' && Dir != 'r')
             {
-                dir = 'l';
+                Dir = 'l';
             }
         }
 
@@ -78,24 +76,24 @@ namespace Snake
         {
             Direction();
 
-            if (dir == 'u')
+            if (Dir == 'u')
             {
-                y--;
+                Y--;
             }
-            else if (dir == 'd')
+            else if (Dir == 'd')
             {
-                y++;
+                Y++;
             }
-            else if (dir == 'r')
+            else if (Dir == 'r')
             {
-                x++;
+                X++;
             }
-            else if (dir == 'l')
+            else if (Dir == 'l')
             {
-                x--;
+                X--;
             }
 
-            SnakeBody.Add(new Position(x, y));
+            SnakeBody.Add(new Position(X, Y));
             SnakeBody.RemoveAt(0);
             Thread.Sleep(100);
         }
@@ -107,9 +105,9 @@ namespace Snake
 
             if (head.X == food.X && head.Y == food.Y)
             {
-                SnakeBody.Add(new Position(x, y));
+                SnakeBody.Add(new Position(X, Y));
                 f.FoodNewLocation();
-                score++;
+                Score++;
             }
         }
 
@@ -136,7 +134,6 @@ namespace Snake
             {
                 throw new SnakeException("You DEAD!!!!");
             }
-
         }
 
     }
